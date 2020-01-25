@@ -34,7 +34,7 @@ public class TechJobs {
 
             String actionChoice = getUserSelection("View jobs by:", actionChoices);
 
-            if (actionChoice.equals("list")) {
+            if (actionChoice.equalsIgnoreCase("list")) {
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
@@ -61,7 +61,7 @@ public class TechJobs {
                 System.out.println("\nSearch term: ");
                 String searchTerm = in.nextLine();
 
-                if (searchField.equals("all")) {
+                if (searchField.equalsIgnoreCase("all")) {
                     printJobs(JobData.findByValue(searchTerm));
 
                 } else {
@@ -112,7 +112,10 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+          if(someJobs.size()==0){
 
+              System.out.println("No records Found");
+          }
 
         for (int i = 0; i < someJobs.size(); i++) {
             for (Map.Entry<String, String> entry : someJobs.get(i).entrySet()) {
@@ -124,4 +127,5 @@ public class TechJobs {
         }
 
     }
+
 }

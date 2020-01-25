@@ -76,11 +76,11 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toUpperCase().contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
-        System.out.println("No records Found");
+
         return jobs;
     }
 
@@ -91,7 +91,7 @@ public class JobData {
 
         for (HashMap<String, String> job : allJobs) {
             for (String key : job.keySet()) {
-                if (job.get(key).contains(value)) {
+                if (job.get(key).toUpperCase().contains(value.toUpperCase())) {
                     jobs.add(job);
 
                 }
